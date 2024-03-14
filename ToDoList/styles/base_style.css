@@ -1,0 +1,121 @@
+aside {
+	float: left;
+	width: 15%;
+	padding: 2.5%;
+	height: 100vh;
+	border-right: 5px solid rgb(168, 167, 167);
+	background-color: rgb(179, 233, 132);
+	overflow: hidden;
+}
+
+aside span {
+	margin-left: 10px;
+}
+
+aside h5 {
+	margin-top: 50px;
+}
+
+aside a {
+	text-decoration: none;
+}
+
+aside ul {
+	list-style: none;
+}
+
+aside ul li {
+	color: black;
+	display: block;
+	margin-top: 20px;
+	transition: transform .6s;
+	position: relative;
+	left: -15px;
+}
+
+aside ul li:hover {
+	color: brown;
+	transform: scale(1.05);
+}
+
+body {
+	background-color: rgb(242, 242, 242);
+}
+
+main {
+	height: 100vh;
+}
+
+main .container {
+	float: left;
+	margin-top: 100px;
+	text-align: center;
+	width: 75%;
+}
+
+main .tasks {
+	max-width: 1000px;
+	margin: 20px auto;
+	margin-bottom: 20px;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+	border-radius: 20px;
+	display: flex;
+	padding: 20px;
+	justify-content: space-between;
+}
+
+main span {
+	color: rgb(145, 144, 144);
+	font-size: 14px;
+}
+
+main .btn-container {
+	align-self: center;
+}
+
+main .active h5 {
+	color: rgb(145, 144, 144);
+}
+
+main .active span {
+	display: none;
+}
+
+main button {
+	border: none;
+	border-radius: 5px;
+	padding: 5px;
+}
+
+main .add-btn {
+	background-color: rgb(112, 112, 252);
+	color: white;
+	width: 90%;
+	margin-top: 50px;
+	transition: background-color .6s;
+}
+
+main .add-btn:hover {
+	background-color: rgba(112, 112, 252, 0.805);
+}
+
+main .done-btn {
+	background-color: rgb(247, 233, 43);
+}
+
+main .update-btn {
+	background-color: rgb(171, 170, 170);
+}
+
+main .del-btn {
+	background-color: rgb(255, 65, 65);
+	display: none;
+}
+
+main .active .del-btn {
+	display: inline-block;
+}
+
+main .active .task-btn {
+	display: none;
+}

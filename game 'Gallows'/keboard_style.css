@@ -1,0 +1,23 @@
+#keyboard {
+	display: inline-block;
+	border: 2px solid black;
+	padding: 5px;
+}
+
+.k-key {
+	width: 25px;
+	height: 25px;
+	border: 1px solid black;
+	margin: 3px;
+	padding: 3px;
+
+}
+
+#rows {
+	display: flex;
+	justify-content: center;
+}
+
+.active {
+	background-color: orange;
+}
