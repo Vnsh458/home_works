@@ -50,18 +50,22 @@
 			fetch(listTaskGet)
 				.then(response => response.json())
 				.then(tasks => {
-					console.log(tasks[this.id - 1]);
-					let taskUpdate = {
-						'title': tasks[this.id - 1].title,
-						'description': tasks[this.id - 1].description,
-						'deadline': tasks[this.id - 1].deadline,
-						'status': true
+					for (let index = 0; index < tasks.length; index++) {
+						if (tasks[index].id == this.id) {
+							let taskUpdate = {
+								'title': tasks[index].title,
+								'description': tasks[index].description,
+								'deadline': tasks[index].deadline,
+								'status': true
+							}
+							fetch(url, {
+								method: 'PUT',
+								headers: { 'Content-Type': 'application/json' },
+								body: JSON.stringify(taskUpdate)
+							});
+						}
 					}
-					fetch(url, {
-						method: 'PUT',
-						headers: { 'Content-Type': 'application/json' },
-						body: JSON.stringify(taskUpdate)
-					});
+
 				});
 		}
 	});
