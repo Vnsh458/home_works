@@ -1,0 +1,46 @@
+{% extends 'base.html'%}
+
+{% block metadata %}
+<link rel="stylesheet" href="{{ url_for('static', path='/autoris.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container" id="container">
+	<div class="form-container sign-up">
+		<form action="">
+			<h1>Create account</h1>
+			<input type="text" placeholder="Name">
+			<input type="email" placeholder="E-mail">
+			<input type="password" placeholder="Password">
+			<button type="submit">Sign Up</button>
+		</form>
+	</div>
+	<div class="form-container sign-in">
+		<form action="">
+			<h1>Welcome back</h1>
+			<input type="email" placeholder="E-mail">
+			<input type="password" placeholder="Password">
+			<a href="#">Forget your password?</a>
+			<button type="submit">Sign In</button>
+		</form>
+	</div>
+	<div class="toggle-container">
+		<div class="toggle">
+			<div class="toggle-panel toggle-left">
+				<h1>Welcome Back</h1>
+				<p>Enter your acc</p>
+				<button class="hidden" id="login">Sign In</button>
+			</div>
+			<div class="toggle-panel toggle-right">
+				<h1>Create Acc</h1>
+				<p>Create your own account</p>
+				<button class="hidden" id="register">Sign Up</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script src="{{ url_for('static', path='autoris_script.js') }}"></script>
+{% endblock %}

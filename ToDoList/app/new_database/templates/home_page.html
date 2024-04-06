@@ -1,0 +1,84 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<main>
+	<div class="container">
+		{% for task in tasks %}
+		{% if task.status == false %}
+		<div class="tasks">
+			{% else %}
+			<div class="tasks active">
+				{% endif %}
+				<div class="task-container">
+					<h5>{{task.title}}</h5>
+					<p>
+						{{task.description}}
+					</p>
+					<span>{{task.deadline}}</span>
+				</div>
+
+				<div class="btn-container">
+					<div class="task-btn">
+						<button class="done-btn" id="{{task.id}}" type="submit">Done</button>
+						<button class="update-btn" id="{{task.id}}" type="submit">Edit</button>
+					</div>
+					<div class="delete">
+						<button class="del-btn" id="{{task.id}}" type="submit">Delete</button>
+					</div>
+				</div>
+			</div>
+
+
+
+			{% endfor %}
+
+			<form action="{{ url_for('creating_page') }}">
+				<button class="add-btn">Add new task</button>
+			</form>
+		</div>
+</main>
+
+<script>
+	const listTaskGet = 'http://127.0.0.1:8000/api/v1/tasks/list/';
+	// document.querySelectorAll(".task-btn > .done-btn").forEach((element) => {
+	// 	element.onclick = function () {
+	// 		this.parentNode.parentNode.parentNode.classList.add("active");
+	// 	}
+	// });
+	document.querySelectorAll('.done-btn').forEach((element) => {
+		element.onclick = function () {
+			const url = `http://127.0.0.1:8000/api/v1/tasks/update/?task_id=${this.id}`;
+
+			fetch(listTaskGet)
+				.then(response => response.json())
+				.then(tasks => {
+					console.log(tasks[this.id - 1]);
+					let taskUpdate = {
+						'title': tasks[this.id - 1].title,
+						'description': tasks[this.id - 1].description,
+						'deadline': tasks[this.id - 1].deadline,
+						'status': true
+					}
+					fetch(url, {
+						method: 'PUT',
+						headers: { 'Content-Type': 'application/json' },
+						body: JSON.stringify(taskUpdate)
+					});
+				});
+		}
+	});
+
+	document.querySelectorAll('.del-btn').forEach((element) => {
+		element.onclick = function () {
+			//http://127.0.0.1:8000/api/v1/tasks/delete/4/
+			const url = `http://127.0.0.1:8000/api/v1/tasks/delete/${this.id}`
+
+			fetch(url, {
+				method: 'DELETE',
+				headers: { 'Content-Type': 'application/json' }
+			})
+		}
+	});
+</script>
+{% endblock %}

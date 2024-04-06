@@ -1,0 +1,39 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<main>
+	<form action=""></form>
+	<input type="text" id="form-Title" placeholder="Title">
+	<input type="text" id="form-Description" placeholder="Description">
+	<input type="text" id="form-deadline" placeholder="Deadline">
+	<button type="submit" id="post-btn">Create task</button>
+
+</main>
+
+<script>
+
+	const post_api_create = 'http://127.0.0.1:8000/api/v1/tasks/create/'
+
+
+	document.getElementById("post-btn").addEventListener('click', (event) => {
+		let formTitle = document.getElementById("form-Title");
+		let formDescription = document.getElementById("form-Description");
+		let formDeadline = document.getElementById("form-deadline");
+		task = {
+			'title': formTitle.value,
+			'description': formDescription.value,
+			'deadline': formDeadline.value,
+		};
+
+		fetch(post_api_create, {
+			method: 'POST',
+			headers: { 'content-type': 'application/json' },
+			body: JSON.stringify(task)
+		});
+
+		formTitle.value = "";
+		formDescription.value = "";
+		formDeadline.value = "";
+	});
+</script>
+{% endblock %}
