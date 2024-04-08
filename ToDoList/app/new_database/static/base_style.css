@@ -1,4 +1,4 @@
-aside {
+.left-menu {
 	float: left;
 	width: 15%;
 	padding: 2.5%;
@@ -8,23 +8,23 @@ aside {
 	overflow: hidden;
 }
 
-aside span {
+.left-menu span {
 	margin-left: 10px;
 }
 
-aside h5 {
+.left-menu h5 {
 	margin-top: 50px;
 }
 
-aside a {
+.left-menu a {
 	text-decoration: none;
 }
 
-aside ul {
+.left-menu ul {
 	list-style: none;
 }
 
-aside ul li {
+.left-menu ul li {
 	color: black;
 	display: block;
 	margin-top: 20px;
@@ -33,7 +33,48 @@ aside ul li {
 	left: -15px;
 }
 
-aside ul li:hover {
+.left-menu ul li:hover {
+	color: brown;
+	transform: scale(1.05);
+}
+
+/**/
+.right-menu {
+	float: right;
+	width: 15%;
+	padding: 2.5%;
+	height: 100vh;
+	border-left: 5px solid rgb(168, 167, 167);
+	background-color: rgb(179, 233, 132);
+	overflow: hidden;
+}
+
+.right-menu span {
+	margin-right: 10px;
+}
+
+.right-menu h5 {
+	margin-top: 50px;
+}
+
+.right-menu a {
+	text-decoration: none;
+}
+
+.right-menu ul {
+	list-style: none;
+}
+
+.right-menu ul li {
+	color: black;
+	display: block;
+	margin-top: 20px;
+	transition: transform .6s;
+	position: relative;
+	right: -15px;
+}
+
+.right-menu ul li:hover {
 	color: brown;
 	transform: scale(1.05);
 }
