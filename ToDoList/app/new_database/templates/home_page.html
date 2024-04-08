@@ -64,6 +64,7 @@
 								body: JSON.stringify(taskUpdate)
 							});
 						}
+						window.location.reload();
 					}
 
 				});
@@ -78,7 +79,8 @@
 			fetch(url, {
 				method: 'DELETE',
 				headers: { 'Content-Type': 'application/json' }
-			})
+			});
+			window.location.reload();
 		}
 	});
 </script>
