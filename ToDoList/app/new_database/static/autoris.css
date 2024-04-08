@@ -4,14 +4,13 @@
 	box-sizing: border-box;
 }
 
-body {
+
+.container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 100vh;
-}
-
-.container {
+	margin-top: 10%;
+	margin-left: 32%;
 	border-radius: 30px;
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
 	position: relative;

@@ -1,3 +1,8 @@
+body {
+	display: flex;
+	justify-content: space-between;
+}
+
 .left-menu {
 	float: left;
 	width: 15%;
@@ -6,9 +11,10 @@
 	border-right: 5px solid rgb(168, 167, 167);
 	background-color: rgb(179, 233, 132);
 	overflow: hidden;
+	position: fixed;
 }
 
-.left-menu span {
+aside span {
 	margin-left: 10px;
 }
 
@@ -41,42 +47,56 @@
 /**/
 .right-menu {
 	float: right;
-	width: 15%;
+	width: 20%;
 	padding: 2.5%;
 	height: 100vh;
 	border-left: 5px solid rgb(168, 167, 167);
 	background-color: rgb(179, 233, 132);
 	overflow: hidden;
+	position: fixed;
+	left: 80%;
 }
 
-.right-menu span {
-	margin-right: 10px;
+.new-task-form {
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+
 }
 
-.right-menu h5 {
-	margin-top: 50px;
+.new-task-form span {
+	margin: 10px;
 }
 
-.right-menu a {
-	text-decoration: none;
+.new-task-form input {
+	border-radius: 5px;
+	border: none;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+	padding: 5px;
+	width: 191px;
 }
 
-.right-menu ul {
-	list-style: none;
+.new-task-form textarea {
+	border-radius: 5px;
+	border: none;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+	padding: 5px;
+	resize: none;
+	width: 191px;
 }
 
-.right-menu ul li {
-	color: black;
-	display: block;
-	margin-top: 20px;
-	transition: transform .6s;
-	position: relative;
-	right: -15px;
+.new-task-form button {
+	border: none;
+	border-radius: 5px;
+	padding: 5px;
+	width: 191px;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+	background-color: rgb(112, 112, 252);
+	color: white;
 }
 
-.right-menu ul li:hover {
-	color: brown;
-	transform: scale(1.05);
+.new-task-form button:hover {
+	background-color: rgba(112, 112, 252, 0.805);
 }
 
 body {
@@ -85,6 +105,8 @@ body {
 
 main {
 	height: 100vh;
+	width: 80%;
+	overflow-y: scroll;
 }
 
 main .container {
@@ -94,15 +116,22 @@ main .container {
 	width: 75%;
 }
 
+.about {
+	float: left;
+	margin-top: 100px;
+	text-align: center;
+	width: 75%;
+}
+
 main .tasks {
-	max-width: 1000px;
-	margin: 20px auto;
+	width: 500px;
 	margin-bottom: 20px;
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
 	border-radius: 20px;
 	display: flex;
 	padding: 20px;
 	justify-content: space-between;
+	margin-left: 50%;
 }
 
 main span {
@@ -132,18 +161,6 @@ main button {
 	padding: 5px;
 }
 
-main .add-btn {
-	background-color: rgb(112, 112, 252);
-	color: white;
-	width: 90%;
-	margin-top: 50px;
-	transition: background-color .6s;
-}
-
-main .add-btn:hover {
-	background-color: rgba(112, 112, 252, 0.805);
-}
-
 main .done-btn {
 	background-color: rgb(247, 233, 43);
 }
@@ -163,4 +180,18 @@ main .active .del-btn {
 
 main .active .task-btn {
 	display: none;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 10px 10px inherit;
+	border: solid 3px transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	box-shadow: inset 0 0 10px 10px rgb(124, 124, 124);
+	border: solid 3px transparent;
 }
